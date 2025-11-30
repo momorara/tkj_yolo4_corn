@@ -1,0 +1,11 @@
+
+
+https://universe.roboflow.com/skimok7/corn-leaf-diseases-uhpeq/dataset/2/download
+
+Provided by a Roboflow user
+Roboflow（ロボフロー）を使っている一般ユーザーが提供したデータという意味です。
+Roboflowの公式ではなく、個人ユーザーがアップロードした画像ということです。
+
+License: CC BY 4.0（クリエイティブ・コモンズ 表示 4.0）
+
+"Dataset provided by a Roboflow user, licensed under CC BY 4.0."
