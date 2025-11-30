@@ -11,4 +11,4 @@ yolo detect train data=data.yaml model=yolov8n.pt epochs=2 imgsz=128
 from ultralytics import YOLO
 
 model = YOLO("yolov8n.pt")
-results = model.train(data="data.yaml", epochs=12, imgsz=128)
+results = model.train(data="data.yaml", epochs=1, imgsz=128)
