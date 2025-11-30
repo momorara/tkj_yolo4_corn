@@ -7,7 +7,7 @@ Mac,Win,Ubuntuでも少しの変更で使えます。<br>
 ただし、python3.8以上の環境が必要です。<br>
 
 <h4><<使い方>></h4>
-git clone https://github.com/momorara/tkj_yolo4_corn yolo_corn<br>
+git clone https://github.com/momorara/tkj_yolo4_corn yolo4_corn<br>
 として、ラズパイにクローンした上で<br>
 インストール文書に従いインストールを行なってください。<br>
 
