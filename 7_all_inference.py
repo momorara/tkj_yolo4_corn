@@ -17,9 +17,8 @@ from ultralytics import YOLO
 # 設定
 # ==============================
 MODEL_PATH = 'runs/detect/train/weights/best.pt'
-VAL_DIR = 'test/images'
-# VAL_DIR = 'valid/images'
-CLASSES = ['Corn Gray Leaf Spot', 'Corn Healthy', 'Corn Leaf Blight', 'Corn Rust']
+VAL_DIR = 'dataset_tv/images/val'
+CLASSES = ['bercakdaun', 'daunsehat', 'hawardaun', 'karatdaun']
 ERR_DIR = 'result_err'
 ERR_SAVE = True  # 誤判定画像を保存するか
 
@@ -50,30 +49,15 @@ for fname in os.listdir(VAL_DIR):
 
     img_path = os.path.join(VAL_DIR, fname)
 
-    # # ファイル名から正解クラスを特定
-    # fname_lower = fname.lower()
-    # true_cls = None
-    # for cls in CLASSES:
-    #     if fname_lower.startswith(cls.lower()):
-    #         true_cls = cls
-    #         break
-        
-    # ファイル名例
-    filename = fname
-    # ファイル名から正解クラスを判定
-    if "leaf_spot-Gray" in filename:
-        true_cls = "Corn Gray Leaf Spot"
-    elif "Common_rust" in filename:
-        true_cls = "Corn Rust"
-    elif "healthy" in filename:
-        true_cls = "Corn Healthy"
-    elif "Northern_Leaf_Blight" in filename:
-        true_cls = "Corn Leaf Blight"
-    else:
-        true_cls = "Unknown"  # どれにも当てはまらない場合
-    print(true_cls)
+    # ファイル名から正解クラスを特定
+    fname_lower = fname.lower()
+    true_cls = None
+    for cls in CLASSES:
+        if fname_lower.startswith(cls.lower()):
+            true_cls = cls
+            break
 
-    if true_cls is "Unknown" :
+    if true_cls is None:
         print(f"⚠️ クラス名を判定できません: {fname}")
         continue
 

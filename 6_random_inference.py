@@ -3,16 +3,12 @@
 # ランダム画像を選んで推論し、
 # スペースで次の画像、qで終了
 # -----------------------------------------
-"""
-license
-GNU Affero General Public License v3（AGPL v3）
-"""
+import numpy as np
 import os
 import random
 import matplotlib.pyplot as plt
 from glob import glob
 from ultralytics import YOLO
-import shutil
 import re
 
 # # 学習済みモデルの読み込み
@@ -24,7 +20,7 @@ import re
 MODEL_PATH = 'runs/detect/train/weights/best.pt'
 
 # 推論対象フォルダ（猫・犬の両方を含む上位フォルダ）
-base_dir = 'test/images'
+base_dir = 'dataset_tv/images/val'
 
 
 img_list = []
@@ -82,6 +78,15 @@ def show_random_image(event=None):
             cls = int(box.cls[0])         # クラス番号
             label = result.names[cls]     # クラス名（例: person, dog）
 
+            # # バウンディングボックスの描画
+            # cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
+            # cv2.putText(img, f"{label} {conf:.2f}", (int(x1), int(y1) - 10),
+            #             cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+            print(conf,cls,label,x1, y1, x2, y2)
+
+
+
     jpg_files = glob(os.path.join(results[0].save_dir, "*.jpg"))
 
     # Matplotlibで結果画像を表示
@@ -97,17 +102,11 @@ def show_random_image(event=None):
     plt.pause(0.1)  # 少し待つ
 
 def on_key(event):
+    """キー入力イベント"""
     if event.key == ' ':
-        # 新しい画像を読む前にフォルダを削除
-        try:
-            shutil.rmtree(PROJECT_NAME)
-            # print(f"削除しました: {save_dir}")
-        except Exception as e:
-            print(f"ディレクトリ削除失敗: {e}")
         show_random_image()
-    elif event.key.lower() == 'q':
+    elif event.key == 'q':
         plt.close(fig)
-        plt.ioff()  # 終了時にオフ
 
 # キーイベントを接続
 fig.canvas.mpl_connect('key_press_event', on_key)
