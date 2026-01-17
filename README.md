@@ -18,7 +18,7 @@ git clone https://github.com/momorara/tkj_yolo4_corn yolo4_corn<br>
 使用しているライブラリについては、ライブラリ制作者のライセンス規定を参照ください。<br>
 GNU Affero General Public License v3.0<br>
 使用するデータのライセンスは<br>
-CC0 1.0 Universal<br>
+MIT<br>
 です。<br>
 
 <h4><<アップデート>></h4>
