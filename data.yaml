@@ -1,13 +1,4 @@
-train: ../train/images
-val: ../valid/images
-test: ../test/images
-
+train: ./dataset_l/images/train
+val: ./dataset_l/images/val
 nc: 4
-names: ['Corn Gray Leaf Spot', 'Corn Healthy', 'Corn Leaf Blight', 'Corn Rust']
-
-roboflow:
-  workspace: skimok7
-  project: corn-leaf-diseases-uhpeq
-  version: 2
-  license: CC BY 4.0
-  url: https://universe.roboflow.com/skimok7/corn-leaf-diseases-uhpeq/dataset/2
+names: ['bercakdaun', 'daunsehat', 'hawardaun', 'karatdaun']
